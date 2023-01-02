@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class UseCase<Type, Params> {
-  Future<Either<Faliure, Type>> call(Params params);
+  Future<Either<Failure, Type>> call(Params params);
 }
 
 // This will be used by the code calling the use case whenever the use case
