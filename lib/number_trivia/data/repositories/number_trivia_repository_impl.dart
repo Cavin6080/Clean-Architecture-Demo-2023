@@ -1,5 +1,5 @@
 import 'package:clean_architecture/core/error/exceptions.dart';
-import 'package:clean_architecture/core/platform/network_info.dart';
+import 'package:clean_architecture/core/network/network_info.dart';
 import 'package:clean_architecture/number_trivia/data/datasource/number_trivia_local_data_source.dart';
 import 'package:clean_architecture/number_trivia/data/datasource/number_trivia_remote_data_source.dart';
 import 'package:clean_architecture/number_trivia/data/models/number_trivia_model.dart';
@@ -40,8 +40,10 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
     if (await networkInfo.isConnected) {
       try {
         final remoteTrivia = await function();
-        await localDataSource
-            .cacheLastNumberTrivia(remoteTrivia as NumberTriviaModel);
+        await localDataSource.cacheLastNumberTrivia(
+          model: remoteTrivia as NumberTriviaModel,
+          key: 'key',
+        );
         return Right(remoteTrivia);
       } on ServerException {
         return Left(ServerFailure());

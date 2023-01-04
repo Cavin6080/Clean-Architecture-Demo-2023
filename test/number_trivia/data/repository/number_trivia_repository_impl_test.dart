@@ -1,6 +1,6 @@
 import 'package:clean_architecture/core/error/exceptions.dart';
 import 'package:clean_architecture/core/error/faliure.dart';
-import 'package:clean_architecture/core/platform/network_info.dart';
+import 'package:clean_architecture/core/network/network_info.dart';
 import 'package:clean_architecture/number_trivia/data/datasource/number_trivia_local_data_source.dart';
 import 'package:clean_architecture/number_trivia/data/datasource/number_trivia_remote_data_source.dart';
 import 'package:clean_architecture/number_trivia/data/models/number_trivia_model.dart';
@@ -66,9 +66,9 @@ void main() {
         (_) async => tNumberTriviaModel,
       );
 
-      when(() => localDataSource.cacheLastNumberTrivia(tNumberTriviaModel))
-          .thenAnswer(
-        (_) async => tNumberTriviaModel,
+      when(() => localDataSource.cacheLastNumberTrivia(
+          model: tNumberTriviaModel, key: 'key')).thenAnswer(
+        (_) async => true,
       );
 
       //act
@@ -76,7 +76,8 @@ void main() {
 
       //assert
       verify(() => networkInfo.isConnected);
-      verify(() => localDataSource.cacheLastNumberTrivia(tNumberTriviaModel));
+      verify(() => localDataSource.cacheLastNumberTrivia(
+          model: tNumberTriviaModel, key: 'key'));
       expect(result, equals(const Right(tNumberTriva)));
     });
 
