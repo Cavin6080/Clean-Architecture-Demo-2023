@@ -1,16 +1,26 @@
-# clean_architecture
 
-A new Flutter project.
+# Clean Architecture Demo - 2023
 
-## Getting Started
+This repository contains the implementation of Clean Architecture implemented Flutter Framework.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+## Tools Used
+
+- get_it for dependency injection
+- flutter_bloc for state management
+- dartz for functional programming
+- equatable for comparing instance of classes
+- shared_preferences for session management
+- http for API calling
+- data_connection_checker_nulls for checking internet connectivity
+- mocktail for testing 
+
+
+## Authors
+
+- [@cavin](https://www.github.com/octokatherine)
+
