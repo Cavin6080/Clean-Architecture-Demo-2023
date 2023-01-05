@@ -35,7 +35,7 @@ class NumberTriviaPage extends StatelessWidget {
                 BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
                   builder: (context, state) {
                     if (state is Empty) {
-                      return MessageDisplay(
+                      return const MessageDisplay(
                         message: 'Start searching!',
                       );
                     } else if (state is Loading) {

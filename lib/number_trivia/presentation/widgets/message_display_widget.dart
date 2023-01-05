@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class MessageDisplay extends StatelessWidget {
-  late String message;
+  final String message;
 
-  MessageDisplay({Key? key, required this.message}) : super(key: key);
+  const MessageDisplay({Key? key, required this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height / 3,
       child: Center(
         child: SingleChildScrollView(

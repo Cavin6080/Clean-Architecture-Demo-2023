@@ -15,8 +15,7 @@ import 'package:http/http.dart' as http;
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  //! Features - Number Trivia
-//Bloc
+  //Bloc
   sl.registerFactory(
     () => NumberTriviaBloc(
       concrete: sl(),
@@ -25,12 +24,10 @@ Future<void> init() async {
     ),
   );
 
-// Use cases
+  // Use cases
   sl.registerLazySingleton(() => GetConcreateNumberTrivia(sl()));
   sl.registerLazySingleton(() => GetRandomNumberTrivia(sl()));
 
-//! Core
-  sl.registerLazySingleton(() => InputConverter());
   // Repository
   sl.registerLazySingleton<NumberTriviaRepository>(
     () => NumberTriviaRepositoryImpl(
@@ -39,6 +36,9 @@ Future<void> init() async {
       networkInfo: sl(),
     ),
   );
+
+  //! Core
+  sl.registerLazySingleton(() => InputConverter());
 
   // Data sources
   sl.registerLazySingleton<NumberTriviaRemoteDataSource>(
@@ -49,10 +49,8 @@ Future<void> init() async {
     () => NumberTriviaLocalDataSourceImpl(sl()),
   );
 
-//! Core
-
-  sl.registerLazySingleton<NetworkInfo>(() => NetWorkInfoImpl(sl()));
   //! External
+  sl.registerLazySingleton<NetworkInfo>(() => NetWorkInfoImpl(sl()));
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPreferences);
   sl.registerLazySingleton(() => http.Client());
