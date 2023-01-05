@@ -45,9 +45,7 @@ class NumberTriviaPage extends StatelessWidget {
                     } else if (state is Error) {
                       return MessageDisplay(message: state.message);
                     }
-                    return MessageDisplay(
-                      message: '',
-                    );
+                    return const MessageDisplay(message: '');
                   },
                 ),
                 const SizedBox(

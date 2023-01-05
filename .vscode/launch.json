@@ -5,15 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "clean_architecture",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
             "name": "Dart: Run all Tests",
             "type": "dart",
             "request": "launch",
             "program": "./test/number_trivia/"
-        },
-        {
-            "name": "clean_architecture",
-            "request": "launch",
-            "type": "dart"
         },
         {
             "name": "clean_architecture (profile mode)",
